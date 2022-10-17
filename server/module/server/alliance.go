@@ -3,6 +3,7 @@ package server
 import (
 	"alliance/proto-message/pb"
 	"errors"
+	"log"
 	"sort"
 	"sync"
 )
@@ -94,11 +95,13 @@ func (m *allianceInfo) CheckStoreItem(id, number, index int32) error {
 
 	indexNum := m.CapacityTimes*IncreaseItemIndex + DefaultItemIndex
 	if index > indexNum || index < 1 {
+		log.Printf("the item index[%v] error", index)
 		return errors.New("the index overflow")
 	}
 
 	idType, ok := itemInfo[id]
 	if !ok {
+		log.Printf("the item id[%v] error", id)
 		return errors.New("item id error")
 	}
 
@@ -173,7 +176,7 @@ func (m *allianceInfo) Clearup() {
 	}
 
 	m.ItemList = [MaxItemIndex]*allianceItem{} // 清空仓库重新放置
-	sort.Ints(typeList) // 按类型排序
+	sort.Ints(typeList)                        // 按类型排序
 	var index = int32(1)
 	indexNum := m.CapacityTimes*IncreaseItemIndex + DefaultItemIndex
 	for _, tt := range typeList {
@@ -232,4 +235,10 @@ func nextIndex(index, maxIndex int32) (int32, int32) {
 	return 1, index - 1
 }
 
-var itemInfo = make(map[int32]int32) // id->idType
+var itemInfo = map[int32]int32{
+	1: 1,
+	2: 2,
+	3: 3,
+	4: 4,
+	5: 5,
+} // id->idType
