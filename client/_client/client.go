@@ -73,6 +73,7 @@ func (m *clientInfo) signalHandle() {
 		select {
 		case <-sNotify:
 			m.logout()
+			m.Stop()
 			return
 		case <-ticker.C:
 			log.Printf("signal listen running")
