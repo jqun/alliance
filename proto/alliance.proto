@@ -1,0 +1,98 @@
+syntax = "proto3";
+package pb;
+option go_package = "pb/;pb";
+
+// 登录
+message CsAccountLogin {
+  string RoleName = 1;
+}
+message ScAccountLogin {
+  int64 Result = 1;
+  string RoleName = 2;
+}
+
+// 登出
+message CsAccountLogout {
+}
+message ScAccountLogout {
+}
+
+// 加入公会情况
+message CsAllianceInfo {
+}
+message ScAllianceInfo {
+  int64 Result = 1;
+  string AllianceName = 2;
+  repeated string Members = 3;
+}
+
+// 创建公会
+message CsAllianceCreate {
+  string Name = 1;
+}
+
+message ScAllianceCreate {
+  int64 Result = 1;
+  string Name = 2;
+}
+
+// 公会列表
+message CsAllianceList {
+}
+message ScAllianceList {
+  repeated string AllianceList = 1;
+}
+
+// 加入公会
+message CsAllianceJoin {
+  string AllianceName = 1;
+}
+message ScAllianceJoin {
+  int64 Result = 1;
+  string AllianceName = 2;
+}
+
+// 解散公会
+message CsAllianceDismiss {
+}
+message ScAllianceDismiss {
+  int64 Result = 1;
+  string AllianceName = 2;
+}
+
+// 公会扩容
+message CsAllianceIncreaseCapacity {
+}
+message ScAllianceIncreaseCapacity {
+  int64 Result = 1;
+  int64 Capacity = 2;
+}
+
+// 提交物品到仓库
+message CsAllianceStoreItem {
+  int32 Id = 1; // 物品Id
+  int32 Number = 2; // 物品数量
+  int32 Index = 3; // 物品格子序号
+}
+message ScAllianceStoreItem {
+  int64 Result = 1;
+}
+
+// 会长消耗某格仓库
+message CsAllianceDestroyItem {
+  int32 Index = 1;
+}
+message ScAllianceDestroyItem {
+  int64 Result = 1;
+}
+
+// 仓库整理
+message CsAllianceClearup {
+}
+message ScAllianceClearup {
+  int64 Result = 1;
+}
+
+// 心跳检测
+message ClientHeartBeat {
+}
