@@ -74,7 +74,6 @@ func (m *socketConn) ReadMsg() {
 		buf := make([]byte, consts.ReadWriteMaxLength)
 		n, err := m.conn.Read(buf)
 		if err != nil {
-			log.Printf("read msg err,error is [%v]", err.Error())
 			m.Stop()
 			break
 		}
