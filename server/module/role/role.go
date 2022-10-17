@@ -2,7 +2,7 @@ package role
 
 type Role struct {
 	Name         string
-	AllianceName string // 公会Id
+	AllianceName string // 公会名字
 }
 
 type User struct {
