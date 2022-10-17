@@ -52,6 +52,7 @@ alliance
 1. 将CS协议注册到handlerMap
 2. 启动服务并监听客户端连接请求
 3. 监听退出信号
+	```
 	func (m *serverInfo) Run() {
 		go m.signalListen()
 		m.NetSever.Run()
@@ -75,7 +76,9 @@ alliance
 			go conner.Start()
 		}
 	}
+	```
 4. 用户关键结构设计
+	``
 	type Role struct {
 		Name         string
 		AllianceName string // 公会名字
@@ -84,7 +87,9 @@ alliance
 	type User struct {
 		Role *Role
 	}
+	```
 5. 公会关键结构设计
+	```
 	type AllianceInfo struct {
 		sync.RWMutex
 		CapacityTimes int32                       // 扩容次数
@@ -93,6 +98,7 @@ alliance
 		ItemList      [MaxItemIndex]*AllianceItem // 设定最大长度为40的数组
 		close         chan struct{}
 	}
+	```
 6. 仓库放置主逻辑
     ```
     func Find(idType, id, number, index, maxIndex int32, itemList [MaxItemIndex]*AllianceItem, ret map[int32]int32) error {
