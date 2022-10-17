@@ -44,7 +44,7 @@ func (m *clientInfo) flagsParse() {
 }
 
 func (m *clientInfo) Run() {
-	log.Printf("_client[%v] running", m.RoleName)
+	log.Printf("_client start running")
 	go m.gmStart()
 	go m.ScanStdin()
 	go m.signalHandle()

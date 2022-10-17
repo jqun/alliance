@@ -33,7 +33,6 @@ func (m *Server) Run() {
 			if m.ListenerClose {
 				break
 			} else {
-				log.Printf("accept socket err,error is [%v]", err.Error())
 				continue
 			}
 		}
