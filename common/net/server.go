@@ -10,7 +10,7 @@ type Server struct {
 	sync.RWMutex
 	Addr          string
 	Listener      net.Listener
-	CSocketConn   map[string]Conner
+	CSocketConn   map[string]Conner // roleName -> Conner
 	ListenerClose bool
 }
 

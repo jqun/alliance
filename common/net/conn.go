@@ -107,7 +107,7 @@ func (m *socketConn) setReadDeadLine() {
 	if !m.bySeverCreate {
 		return
 	}
-	m.conn.SetReadDeadline(time.Now().Add(10 * time.Minute))
+	_ = m.conn.SetReadDeadline(time.Now().Add(10 * time.Minute))
 }
 
 func (m *socketConn) SendMsg(msgId uint64, msg proto.Message) {
