@@ -78,7 +78,7 @@ alliance
 	}
 	```
 4. 用户关键结构设计
-	``
+	```
 	type Role struct {
 		Name         string
 		AllianceName string // 公会名字
