@@ -132,3 +132,11 @@ alliance
     ```
 
 ## 部署 ##
+第三方库的依赖：仅作为读取配置文件使用
+github.com/BurntSushi/toml v1.2.0
+
+使用go build编译生成可执行文件
+
+1. 进入alliance/server目录，执行go build -o alliance_server main.go,生成可执行文件alliance_server
+2. 进入alliance/client目录，执行go build -o alliance_client main.go,生成可执行文件alliance_client
+3. 分别执行alliance_server | alliance_client
